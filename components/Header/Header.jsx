@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./header.module.css";
+import styles from "./Header.module.css";
 import Nav from "./Nav/Nav";
 import Logo from "./Logo/Logo";
 import Social from "./Social/Social";
