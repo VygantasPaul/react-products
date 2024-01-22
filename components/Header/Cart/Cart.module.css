@@ -1,0 +1,11 @@
+.cart {
+  padding: 0;
+}
+.cart span {
+  padding-left: 0.3rem;
+}
+@media (min-width: 992px) {
+  .cart {
+    padding: 0 1rem;
+  }
+}

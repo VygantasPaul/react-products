@@ -1,0 +1,27 @@
+.productsWrap {
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .productsWrap {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

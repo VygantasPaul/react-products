@@ -1,0 +1,18 @@
+.socialIcons {
+  display: none;
+}
+.socialIcons ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.socialIcons ul li {
+  display: inline;
+  padding: 0 1rem;
+}
+
+@media (min-width: 992px) {
+  .socialIcons {
+    display: block;
+  }
+}
