@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Product from "../Product/Product";
 import styles from "./Products.module.css";
 import ProductFilter from "./ProductFilter/ProductFilter";
-import axios from "axios";
 
-const Products = ({ products }) => {
+const Products = ({ products, updateCartCount }) => {
   const [currentFilter, setCurrentFilter] = useState("Tops");
-
+  const [cartCount, setCartCount] = useState(0);
   const handleFilterChange = (filter) => {
     setCurrentFilter(filter);
   };
@@ -32,7 +31,10 @@ const Products = ({ products }) => {
                     title={product.title}
                     price={product.price}
                     location={product.location}
+                    category={product.category}
                     units_left={product.units_left}
+                    updateCartCount={updateCartCount}
+                    cartCount={cartCount}
                   />
                 );
               }

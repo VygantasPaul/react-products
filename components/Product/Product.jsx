@@ -2,17 +2,26 @@ import React, { useState } from "react";
 import styles from "./Product.module.css";
 import Button from "./Button/Button";
 import Addcart from "./Addcart/Addcart";
-const Product = ({ title, price, image, location, category, units_left }) => {
+const Product = ({
+  title,
+  price,
+  image,
+  location,
+  category,
+  units_left,
+  updateCartCount,
+  cartCount,
+}) => {
   const imageUrl = image || "https://placeholder.com/150";
-
   const [showLocation, setLocation] = useState(false);
-  const [cartCount, setcartCount] = useState(0);
 
-  const addToCart = () => {
-    setcartCount(cartCount + 1);
-  };
   const handleClick = () => {
     setLocation(!showLocation);
+  };
+  const [buttonText, setButtonText] = useState("Add to cart");
+  const handleAddToCart = () => {
+    updateCartCount();
+    setButtonText("Added to cart");
   };
 
   return (
@@ -27,9 +36,10 @@ const Product = ({ title, price, image, location, category, units_left }) => {
             <h5>Category: {category}</h5>
           </div>
           <Addcart
-            onClick={addToCart}
+            text={buttonText}
+            onClick={handleAddToCart}
+            updateCartCount={updateCartCount}
             cartCount={cartCount}
-            text={`Add to cart ${cartCount}`}
           />
           <Button
             text={showLocation ? "Hide location" : "Show location"}

@@ -14,6 +14,11 @@ export default function Home() {
     );
     setProducts(response.data);
   };
+  const [cartCount, setCartCount] = useState(0);
+
+  const updateCartCount = () => {
+    setCartCount((prevCartCount) => prevCartCount + 1);
+  };
 
   useEffect(() => {
     fetchData();
@@ -27,9 +32,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.wrap}>
-        <Header />
+        <Header cartCount={cartCount} />
+
         <main className={`${styles.main}`}>
-          <Products products={products} />
+          <Products products={products} updateCartCount={updateCartCount} setCartCount={setCartCount} />
         </main>
         <Footer />
       </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./Addcart.module.css";
-const Addcart = ({ text, onClick, cartCount }) => {
+const Addcart = ({ text, onClick }) => {
   return (
     <button onClick={onClick} className={styles.addToCart}>
-      {text}
+      {`${text}`}
     </button>
   );
 };
