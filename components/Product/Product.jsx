@@ -14,7 +14,7 @@ const Product = ({
 }) => {
   const imageUrl = image || "https://placeholder.com/150";
   const [showLocation, setLocation] = useState(false);
-
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const handleClick = () => {
     setLocation(!showLocation);
   };
@@ -22,6 +22,7 @@ const Product = ({
   const handleAddToCart = () => {
     updateCartCount();
     setButtonText("Added to cart");
+    setButtonDisabled(true);
   };
 
   return (
@@ -40,6 +41,7 @@ const Product = ({
             onClick={handleAddToCart}
             updateCartCount={updateCartCount}
             cartCount={cartCount}
+            disabled={buttonDisabled}
           />
           <Button
             text={showLocation ? "Hide location" : "Show location"}
